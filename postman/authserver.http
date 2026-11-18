@@ -1,0 +1,12 @@
+// Listar usuários
+GET localhost:8080/api/users
+
+// Cadastra um usuário
+POST localhost:8080/api/users
+Content-Type: appçocation/json
+
+{
+    "name": "Kamilly",
+    "email": "kamilly@email.com",
+    "password": "12345"
+}
