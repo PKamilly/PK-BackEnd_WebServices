@@ -26,7 +26,11 @@ class UsersController(val service: UsersService) {
     @Transactional
     @PostMapping // Cria um usuário novo
     fun createUser(@RequestBody req: UserRequest): ResponseEntity<UserResponse>{
-        val user = User(name = req.name!!, email=  req.email!!, password =  req.password!!)
+        val user = User(
+            name = req.name!!, email = req.email!!, password = req.password!!,
+            id = TODO(),
+            roles = TODO()
+        )
         val saved = service.save(user).toResponse()
         return ResponseEntity.status(HttpStatus.CREATED).body(saved)
     }

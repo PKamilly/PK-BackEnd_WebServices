@@ -1,0 +1,80 @@
+@host = http://localhost:8080/api
+@admin = COLE_AQUI_O_TOKEN_DO_ADMIN
+@cliente = COLE_AQUI_O_TOKEN_DO_CLIENTE
+
+###
+POST {{host}}/users/login
+Content-Type: application/json
+
+{ "email": "admin@authserver.com", "password": "admin" }
+
+###
+POST {{host}}/users/login
+Content-Type: application/json
+
+{ "email": "cliente@surfshop.com", "password": "cliente123" }
+
+###
+GET {{host}}/products
+
+###
+GET {{host}}/products?name=a&brandName=f&minPrice=50&maxPrice=3000&inStock=true&sortBy=price&sortDir=desc&page=0&size=5
+
+###
+GET {{host}}/products?sortBy=brand&sortDir=asc
+
+###
+POST {{host}}/products
+Authorization: Bearer {{admin}}
+Content-Type: application/json
+
+{ "name": "Capa de prancha 6'4", "price": 349.90, "stock": 8, "brandId": 5, "categoryIds": [2] }
+
+###
+PUT {{host}}/products/1/categories/2
+Authorization: Bearer {{admin}}
+
+###
+DELETE {{host}}/products/1/categories/2
+Authorization: Bearer {{admin}}
+
+###
+DELETE {{host}}/products/1
+
+###
+DELETE {{host}}/products/1
+Authorization: Bearer {{cliente}}
+
+###
+POST {{host}}/orders
+Authorization: Bearer {{cliente}}
+
+###
+POST {{host}}/orders/1/items
+Authorization: Bearer {{cliente}}
+Content-Type: application/json
+
+{ "productId": 3, "quantity": 2 }
+
+###
+POST {{host}}/orders/1/items
+Authorization: Bearer {{cliente}}
+Content-Type: application/json
+
+{ "productId": 3, "quantity": 9999 }
+
+###
+DELETE {{host}}/orders/1/items/1
+Authorization: Bearer {{cliente}}
+
+###
+POST {{host}}/orders/1/close
+Authorization: Bearer {{cliente}}
+
+###
+GET {{host}}/orders?status=CLOSED&sortBy=createdAt&sortDir=desc&page=0&size=10
+Authorization: Bearer {{cliente}}
+
+###
+GET {{host}}/orders?from=2026-11-01&to=2026-11-30&userId=2
+Authorization: Bearer {{admin}}

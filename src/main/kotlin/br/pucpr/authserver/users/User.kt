@@ -1,31 +1,37 @@
 package br.pucpr.authserver.users
 
+import br.pucpr.authserver.roles.Role
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.Id
+import jakarta.persistence.JoinColumn
+import jakarta.persistence.JoinTable
 import jakarta.persistence.ManyToMany
 import jakarta.persistence.Table
 import jakarta.validation.constraints.Email
-import jakarta.validation.constraints.NotNull
-import jakarta.validation.constraints.Size
 
 @Entity
-@Table(name = "tblUser")
-open class User (
+@Table(name="UserTable")
+class User(
     @Id @GeneratedValue
     var id: Long? = null,
 
-    @Column(nullable = false)
-    var name: String = "",
-
     @Email
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false, unique = true)
     var email: String,
 
-    @Size(min=8, max=50)
+    @Column(nullable = false, length = 72)
     var password: String,
 
+    @Column(nullable = false)
+    var name: String,
+
     @ManyToMany
-    val roles: Set<Role>
+    @JoinTable(
+        name = "UserRole",
+        joinColumns = [JoinColumn(name="idUser")],
+        inverseJoinColumns = [JoinColumn(name="idRole")],
+    )
+    var roles: MutableSet<Role> = mutableSetOf()
 )
