@@ -1,6 +1,6 @@
 # 🚀 PK-BackEnd Web Services
 
-> Repositório desenvolvido para o trabalho prático de Web Services / Desenvolvimento Back-End (**Opção 1 – Estendendo os serviços**).
+> Repositório desenvolvido para o trabalho prático de Web Services / Desenvolvimento Back-End.
 > API de uma **loja de surf**, construída sobre o servidor `authserver` visto em aula.
 
 ## 👥 Integrantes
