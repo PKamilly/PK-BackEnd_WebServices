@@ -1,6 +1,6 @@
 @host = http://localhost:8080/api
-@admin = COLE_AQUI_O_TOKEN_DO_ADMIN
-@cliente = COLE_AQUI_O_TOKEN_DO_CLIENTE
+@admin = eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwibmFtZSI6IkFkbWluaXN0cmF0b3IiLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3OTU0ODUyNzQsImV4cCI6MTc5NTQ5MjQ3NH0.11TCkGLNT_K8nKtbj2PE8v8q29bGDHWd-LCQ7AnwHE8
+@cliente = eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwibmFtZSI6IkNsaWVudGUgU3VyZiIsInJvbGVzIjpbXSwiaWF0IjoxNzk1NDg1MzMwLCJleHAiOjE3OTU0OTI1MzB9.QnDGniCsd46m4ryJTA-fvh1fa9xUZN82VA0cPYMn5jc
 
 ###
 POST {{host}}/users/login
