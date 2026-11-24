@@ -161,7 +161,7 @@ class ProductServiceTest {
         val error = shouldThrow<ResponseStatusException> { service.deleteById(10) }
 
         error.statusCode.value() shouldBe 409
-        verify(exactly = 0) { repository.delete(any()) }
+        verify(exactly = 0) { repository.delete(any<Product>()) }
     }
 
     @Test
