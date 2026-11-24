@@ -246,7 +246,7 @@ class OrderServiceTest {
         val error = shouldThrow<ResponseStatusException> { service.delete(10, ownerAuth) }
 
         error.statusCode.value() shouldBe 409
-        verify(exactly = 0) { repository.delete(any()) }
+        verify(exactly = 0) { repository.delete(any<PurchaseOrder>()) }
     }
 
     @Test
