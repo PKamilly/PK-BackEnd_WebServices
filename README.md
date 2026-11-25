@@ -8,6 +8,11 @@
 
 ---
 
+## 🎥 Apresentação em Vídeo
+O vídeo explicativo detalhando a arquitetura, as escolhas de implementação e a demonstração dos endpoints está disponível no YouTube: https://youtu.be/QC_H05pF1uw
+
+---
+
 ## 📌 Sobre o Projeto
 O `authserver` da disciplina (usuários, papéis e login) foi estendido com uma loja de surf: marcas, categorias, produtos e pedidos. O projeto contempla:
 
